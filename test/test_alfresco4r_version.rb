@@ -9,7 +9,7 @@ require 'alfresco4r/version'
 class TestAlfresco4rVersion < Test::Unit::TestCase
 
   def test_version_number
-    assert_equal(Alfresco4r::VERSION, "0.0.1")
+    assert_equal(Alfresco4r::VERSION, "0.0.2")
   end
   
 end

@@ -2,8 +2,8 @@ $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'test/unit'
 require 'alfresco4r'
-require 'document_download'
-require 'document_upload'
+require 'alfresco4r/document_download'
+require 'alfresco4r/document_upload'
 
 
 class TestAlfresco4r < Test::Unit::TestCase
@@ -12,38 +12,38 @@ class TestAlfresco4r < Test::Unit::TestCase
 
   def test_download_empty_params_class
      options = {}
-     download_obj = DocumentDownload.new(options)
+     download_obj = Alfresco4r::DocumentDownload.new(options)
      assert_kind_of(Alfresco4r::AlfError, download_obj.response)
   end
 
   def test_download_empty_params_message
      options = {}
-     download_obj = DocumentDownload.new(options)
+     download_obj = Alfresco4r::DocumentDownload.new(options)
      assert_equal("Empty Parameter", download_obj.response.message)
   end
 
   def test_download_empty_params_status
      options = {}
-     download_obj = DocumentDownload.new(options)
+     download_obj = Alfresco4r::DocumentDownload.new(options)
      assert_equal("Failure", download_obj.response.status)
   end
 
   def test_download_missing_params_class
      options = {:full_file_name => 'test.pdf'}
-     download_obj = DocumentDownload.new(options)
+     download_obj = Alfresco4r::DocumentDownload.new(options)
      assert_kind_of(Alfresco4r::AlfError, download_obj.response)
   end
 
   def test_download_missing_params_message
      options = {:full_file_name => 'test.pdf'}
-     download_obj = DocumentDownload.new(options)
+     download_obj = Alfresco4r::DocumentDownload.new(options)
      assert_equal("Failure", download_obj.response.status)
   end
 
   def test_download_missing_params_message
      options = {:full_file_name => 'test.pdf'}
-     download_obj = DocumentDownload.new(options)
-     missing_params = DocumentDownload::EXPECTED_PARAMS - options.keys
+     download_obj = Alfresco4r::DocumentDownload.new(options)
+     missing_params = Alfresco4r::DocumentDownload::EXPECTED_PARAMS - options.keys
      msg = "Expected paramerter #{missing_params} are missing. Expected parameters are :download_url,:node"
      assert_equal(msg, download_obj.response.message)
   end
@@ -209,42 +209,40 @@ class TestAlfresco4r < Test::Unit::TestCase
 
 
 
-
-
   def test_upload_empty_params_class
      options = {}
-     upload_obj = DocumentUpload.new(options)
+     upload_obj = Alfresco4r::DocumentUpload.new(options)
      assert_kind_of(Alfresco4r::AlfError, upload_obj.response)
   end
 
   def test_upload_empty_params_message
      options = {}
-     upload_obj = DocumentUpload.new(options)
+     upload_obj = Alfresco4r::DocumentUpload.new(options)
      assert_equal("Empty Parameter", upload_obj.response.message)
   end
 
   def test_upload_empty_params_status
      options = {}
-     upload_obj = DocumentUpload.new(options)
+     upload_obj = Alfresco4r::DocumentUpload.new(options)
      assert_equal("Failure", upload_obj.response.status)
   end
 
   def test_upload_missing_params_class
      options = {:siteid => 'siteid'}
-     upload_obj = DocumentUpload.new(options)
+     upload_obj = Alfresco4r::DocumentUpload.new(options)
      assert_kind_of(Alfresco4r::AlfError, upload_obj.response)
   end
 
   def test_upload_missing_params_message
      options = {:siteid => 'siteid'}
-     upload_obj = DocumentUpload.new(options)
+     upload_obj = Alfresco4r::DocumentUpload.new(options)
      assert_equal("Failure", upload_obj.response.status)
   end
 
   def test_upload_missing_params_message
      options = {:siteid => 'siteid'}
-     upload_obj = DocumentUpload.new(options)
-     missing_params = DocumentUpload::EXPECTED_PARAMS - options.keys
+     upload_obj = Alfresco4r::DocumentUpload.new(options)
+     missing_params = Alfresco4r::DocumentUpload::EXPECTED_PARAMS - options.keys
      msg = "Expected paramerter #{missing_params} are missing. Expected parameters are siteid,containerid,uploaddirectory,mime_type,full_file_name,filedata."
      assert_equal(msg, upload_obj.response.message)
   end

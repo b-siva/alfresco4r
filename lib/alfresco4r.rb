@@ -1,7 +1,6 @@
 require 'net/http'
 require 'uri'
 require 'yaml'
-require "alfresco4r/version"
 
 
 module Alfresco4r
