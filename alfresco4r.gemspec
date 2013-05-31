@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/alfresco4r', __FILE__)
-require File.expand_path('../lib/alfresco4r/version', __FILE__)
-#require File.expand_path('../lib/alfresco4r/document_download', __FILE__)
-#require File.expand_path('../lib/alfresco4r/document_upload', __FILE__)
+$:.push File.expand_path("../lib", __FILE__)
+require 'alfresco4r/version'
+require 'alfresco4r/document_download'
+require 'alfresco4r/document_upload'
 
 
 Gem::Specification.new do |gem|
@@ -12,10 +12,10 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Interaction with Alfresco from Ruby}
   gem.homepage      = "https://github.com/sivaprakasamboopathy/alfresco4r"
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         =  Dir.glob("lib/*/*.rb")
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "alfresco4r"
-  gem.require_paths = ["lib"]
+  gem.require_paths = ["lib", "lib/alfresco4r"]
   gem.version       = Alfresco4r::VERSION
 end

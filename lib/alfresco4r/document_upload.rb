@@ -6,6 +6,7 @@
 ################################################################################
 
 require 'json'
+require 'alfresco4r'
 
 module Alfresco4r
   class DocumentUpload < AbstractAlfrescoService

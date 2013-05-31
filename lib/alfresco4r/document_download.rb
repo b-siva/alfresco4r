@@ -5,7 +5,7 @@
 # Description: This file gives ability to download document from Alfresco
 ################################################################################
 
-
+require 'alfresco4r'
 
 module Alfresco4r
   class DocumentDownload < AbstractAlfrescoService
