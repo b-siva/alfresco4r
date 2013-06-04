@@ -13,8 +13,8 @@ module Alfresco4r
       @options = options
       self_class = self.class.name
       klass_url = self_class.concat("Url")
-      @auth_obj = DocumentAuth.new(options)
-      @url_obj = klass_url == "DocumentDownloadUrl" ? DocumentDownloadUrl.new(options) : DocumentUploadUrl.new(options)
+      @auth_obj = DocumentAuth.new(options)      
+      @url_obj = klass_url == "Alfresco4r::DocumentDownloadUrl" ? DocumentDownloadUrl.new(options) : DocumentUploadUrl.new(options)      
       self_class.include?('Upload') ? post_object : get_object
     end
 
