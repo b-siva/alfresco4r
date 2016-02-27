@@ -5,10 +5,10 @@
 # Description: This file gives ability to download document from Alfresco
 ################################################################################
 
-require 'alfresco4r'
+require 'alfresco4r/abstract_service'
 
 module Alfresco4r
-  class DocumentDownload < AbstractAlfrescoService
+  class DocumentDownload < Alfresco4r::AbstractAlfrescoService
     EXPECTED_PARAMS = [:download_url,:node]
 
     attr_reader :data_stream

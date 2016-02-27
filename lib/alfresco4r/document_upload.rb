@@ -6,10 +6,10 @@
 ################################################################################
 
 require 'json'
-require 'alfresco4r'
+require 'alfresco4r/abstract_service'
 
 module Alfresco4r
-  class DocumentUpload < AbstractAlfrescoService
+  class DocumentUpload < Alfresco4r::AbstractAlfrescoService
      EXPECTED_PARAMS = [:siteid,:containerid,:uploaddirectory,:mime_type,:full_file_name,:filedata,:upload_url]
 
 
